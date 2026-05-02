@@ -27,20 +27,21 @@ Stack* createStack() {
     return newStack;
 }
 
-void push(Stack *s, int v) {
-    if (!s) return;
+bool push(Stack *s, int v) {
+    if (!s) return false;
 
     if (s->size == s->capacity) {
         int newCapacity = s->capacity * 2;
         int *tmp = realloc(s->v, newCapacity * sizeof(int));
 
-        if (!tmp) return;
+        if (!tmp) return false;
 
         s->capacity = newCapacity;
         s->v = tmp;
     }
 
     s->v[s->size++] = v;
+    return true;
 }
 
 bool pop(Stack *s, int *r) {
@@ -81,7 +82,7 @@ void clearStack(Stack *s) {
 
     s->size = 0;
 
-    int *tmp = realloc(s->v, INITIAL_CAPACITY);
+    int *tmp = realloc(s->v, INITIAL_CAPACITY * sizeof(int));
     if (tmp) {
         s->v = tmp;
         s->capacity = INITIAL_CAPACITY;

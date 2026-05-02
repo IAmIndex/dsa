@@ -33,14 +33,16 @@ Stack* createStack() {
     return newStack;
 }
 
-void push(Stack *s, int v) {
-    if (!s) return;
+bool push(Stack *s, int v) {
+    if (!s) return false;
 
     struct Node *newNode = createNode(v);
-    if (!newNode) return;
+    if (!newNode) return false;
     
     newNode->next = s->top;
     s->top = newNode;
+
+    return true;
 }
 
 bool pop(Stack *s, int *r) {
