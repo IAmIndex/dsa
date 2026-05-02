@@ -7,7 +7,7 @@
 
 struct Stack {
     int *v;
-    int size, capacity;
+    size_t size, capacity;
 };
 
 Stack* createStack() {
