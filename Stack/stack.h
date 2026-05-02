@@ -1,6 +1,3 @@
-#ifndef STACK_LL
-#define STACK_LL
-
 #include <stdbool.h>
 
 typedef struct Stack Stack;
@@ -16,5 +13,3 @@ bool isEmpty(const Stack *s);
 void printStack(const Stack *s);
 void clearStack(Stack *s);
 void freeStack(Stack **s);
-
-#endif
