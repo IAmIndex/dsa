@@ -31,7 +31,7 @@ bool push(Stack *s, int v) {
     if (!s) return false;
 
     if (s->size == s->capacity) {
-        int newCapacity = s->capacity * 2;
+        size_t newCapacity = s->capacity * 2;
         int *tmp = realloc(s->v, newCapacity * sizeof(int));
 
         if (!tmp) return false;
